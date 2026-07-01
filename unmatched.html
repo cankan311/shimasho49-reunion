@@ -1,0 +1,351 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>反映されていない方はこちら｜島田商業高等学校49回生 同窓会</title>
+  <style>
+    :root {
+      --ink: #21180c;
+      --muted: #6f6555;
+      --gold: #8b671f;
+      --deep: #0d2019;
+      --paper: #f7f0df;
+      --card: rgba(255, 252, 244, 0.88);
+      --line: rgba(139, 103, 42, 0.18);
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      font-family: "Hiragino Mincho ProN", "Yu Mincho", "Noto Serif JP", serif;
+      color: var(--ink);
+      background:
+        radial-gradient(circle at 10% 0%, rgba(184, 145, 64, 0.22), transparent 30%),
+        linear-gradient(135deg, #f7f0df, #e7ddc7 60%, #d8cbb1);
+      min-height: 100vh;
+      line-height: 1.9;
+    }
+
+    .page {
+      width: min(960px, calc(100% - 28px));
+      margin: 0 auto;
+      padding: 26px 0 56px;
+    }
+
+    .top {
+      display: flex;
+      justify-content: space-between;
+      gap: 16px;
+      align-items: center;
+      margin-bottom: 20px;
+    }
+
+    .back {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      color: #513b12;
+      text-decoration: none;
+      font-weight: 700;
+      padding: 10px 14px;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.5);
+    }
+
+    .card {
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: 28px;
+      box-shadow: 0 24px 60px rgba(55, 42, 22, 0.14);
+      overflow: hidden;
+    }
+
+    .hero {
+      padding: clamp(28px, 5vw, 52px);
+      border-bottom: 1px solid var(--line);
+      background:
+        linear-gradient(135deg, rgba(255,255,255,0.72), rgba(255,255,255,0.16)),
+        radial-gradient(circle at 90% 10%, rgba(185, 143, 50, 0.20), transparent 34%);
+    }
+
+    .eyebrow {
+      color: var(--gold);
+      font-weight: 800;
+      letter-spacing: .18em;
+      font-size: 13px;
+      text-transform: uppercase;
+      margin-bottom: 10px;
+    }
+
+    h1 {
+      margin: 0 0 14px;
+      font-size: clamp(32px, 7vw, 56px);
+      line-height: 1.16;
+      letter-spacing: .03em;
+    }
+
+    .lead {
+      margin: 0;
+      color: var(--muted);
+      font-size: clamp(16px, 3.8vw, 20px);
+    }
+
+    .body {
+      padding: clamp(22px, 5vw, 44px);
+    }
+
+    .notice {
+      border: 1px solid rgba(139, 103, 42, 0.22);
+      background: rgba(255, 245, 201, 0.48);
+      border-radius: 22px;
+      padding: 18px 20px;
+      margin-bottom: 24px;
+      color: #5d4718;
+    }
+
+    .table-wrap {
+      width: 100%;
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+      border: 1px solid var(--line);
+      border-radius: 20px;
+      background: rgba(255,255,255,0.55);
+    }
+
+    table {
+      min-width: 760px;
+      width: max-content;
+      border-collapse: collapse;
+      font-family: "Hiragino Sans", "Yu Gothic", system-ui, sans-serif;
+    }
+
+    th, td {
+      padding: 15px 18px;
+      border-bottom: 1px solid rgba(139, 103, 42, 0.14);
+      white-space: nowrap;
+      text-align: left;
+      vertical-align: middle;
+    }
+
+    th {
+      background: rgba(226, 204, 158, 0.55);
+      color: #3c2b10;
+      font-weight: 800;
+    }
+
+    tr:last-child td { border-bottom: none; }
+
+    .name {
+      font-weight: 800;
+      font-size: 1.05em;
+    }
+
+    .chip {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-width: 72px;
+      padding: 6px 14px;
+      border-radius: 999px;
+      background: rgba(197, 245, 235, 0.82);
+      color: #08473c;
+      font-weight: 800;
+    }
+
+    .empty {
+      padding: 28px;
+      color: var(--muted);
+    }
+
+    .footer-note {
+      margin-top: 20px;
+      color: var(--muted);
+      font-size: 14px;
+      font-family: "Hiragino Sans", "Yu Gothic", system-ui, sans-serif;
+    }
+
+    @media (max-width: 760px) {
+      .page {
+        width: calc(100% - 20px);
+        padding-top: 14px;
+      }
+
+      .hero, .body {
+        padding: 24px 18px;
+      }
+
+      .table-wrap {
+        margin-left: -2px;
+        margin-right: -2px;
+      }
+
+      th, td {
+        padding: 13px 15px;
+        font-size: 14px;
+      }
+    }
+  
+    /* 最終調整：スプレッドシート反映文字のフォント統一 */
+    .hero-title,
+    .hero-lead,
+    .hero-info-card strong,
+    .info-item strong,
+    .cash-only-lead,
+    #payment .lead,
+    #payment .notice,
+    #overview .info-item strong,
+    .section h2,
+    .lead {
+      font-family: "Noto Serif JP", "Yu Mincho", "Hiragino Mincho ProN", serif !important;
+    }
+
+    #payment .bank-grid,
+    #payment .bank-item {
+      display: none !important;
+    }
+    
+  </style>
+
+  <link rel="manifest" href="/manifest.json">
+  <link rel="icon" href="/favicon.ico">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <meta name="theme-color" content="#0b0b08">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-title" content="島商49回生">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+</head>
+<body>
+  <main class="page">
+    <div class="top">
+      <a class="back" href="./">← 同窓会ページへ戻る</a>
+    </div>
+
+    <section class="card">
+      <div class="hero">
+        <div class="eyebrow">UNMATCHED RESPONSES</div>
+        <h1>反映されていない方はこちら</h1>
+        <p class="lead">
+          フォームには回答がありますが、名簿と自動一致しなかった回答を確認できます。
+        </p>
+      </div>
+
+      <div class="body">
+        <div class="notice">
+          旧姓・漢字違い・現在のお名前で入力された場合など、名簿と一致しなかった回答がここに表示されます。<br>
+          ここに表示されても、回答自体は「フォームの回答 1」に残っています。
+        </div>
+
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>クラス</th>
+                <th>出席番号</th>
+                <th>入力名</th>
+                <th>出欠</th>
+                <th>二次会</th>
+                
+                <th>回答日時</th>
+              </tr>
+            </thead>
+            <tbody id="unmatchedBody">
+              <tr><td colspan="6">読み込み中...</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <p class="footer-note">
+          ※ 表は左右にスワイプして確認できます。ここに名前がある場合は、フォーム回答シートを見ながら名簿側の表記を確認してください。
+        </p>
+      </div>
+    </section>
+  </main>
+
+  <script>
+    const CONFIG = {
+      gasUrl: 'https://script.google.com/macros/s/AKfycbzzVAS5B2iTJ0r9vSt6UYEHIvcLUukGqpH2h7D-f_02_7pCZr56M72UkZPpFJXsE4QoPA/exec',
+      token: 'shimasho2026'
+    };
+
+    function loadData() {
+      const callbackName = 'jsonpCallback_' + Date.now();
+      const script = document.createElement('script');
+      const url = CONFIG.gasUrl + '?token=' + encodeURIComponent(CONFIG.token) + '&callback=' + callbackName;
+
+      window[callbackName] = function(data) {
+        try {
+          if (!data || !data.ok) {
+            renderError(data && data.error ? data.error : '読み込みに失敗しました');
+            return;
+          }
+          renderUnmatched(data.unmatchedResponses || []);
+        } finally {
+          delete window[callbackName];
+          script.remove();
+        }
+      };
+
+      script.onerror = function() {
+        renderError('Apps Scriptからデータを読み込めませんでした。');
+        delete window[callbackName];
+        script.remove();
+      };
+
+      script.src = url;
+      document.body.appendChild(script);
+    }
+
+    function renderUnmatched(items) {
+      const tbody = document.getElementById('unmatchedBody');
+      tbody.innerHTML = '';
+
+      if (!items.length) {
+        tbody.innerHTML = '<tr><td colspan="6">未照合の回答はありません。</td></tr>';
+        return;
+      }
+
+      items.forEach(item => {
+        const tr = document.createElement('tr');
+        tr.innerHTML = `
+          <td>${escapeHtml(item.className || '')}</td>
+          <td>${escapeHtml(item.number || '')}</td>
+          <td class="name">${escapeHtml(item.name || '')}</td>
+          <td><span class="chip">${escapeHtml(item.status || '未回答')}</span></td>
+          <td>${escapeHtml(item.afterParty || '未回答')}</td>
+          <td>${escapeHtml(formatDateTime(item.timestamp || ''))}</td>
+        `;
+        tbody.appendChild(tr);
+      });
+    }
+
+    function renderError(message) {
+      document.getElementById('unmatchedBody').innerHTML =
+        '<tr><td colspan="6">エラー：' + escapeHtml(message) + '</td></tr>';
+    }
+
+    function formatDateTime(value) {
+      if (!value) return '';
+      const date = new Date(value);
+      if (isNaN(date.getTime())) return String(value);
+      return date.toLocaleString('ja-JP');
+    }
+
+    function escapeHtml(value) {
+      return String(value)
+        .replace(/&/g, '&amp;')
+        .replace(/</g, '&lt;')
+        .replace(/>/g, '&gt;')
+        .replace(/"/g, '&quot;')
+        .replace(/'/g, '&#039;');
+    }
+
+    loadData();
+  </script>
+</body>
+</html>
