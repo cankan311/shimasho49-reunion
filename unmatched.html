@@ -249,13 +249,11 @@
                 <th>出席番号</th>
                 <th>入力名</th>
                 <th>出欠</th>
-                <th>二次会</th>
-                
                 <th>回答日時</th>
               </tr>
             </thead>
             <tbody id="unmatchedBody">
-              <tr><td colspan="6">読み込み中...</td></tr>
+              <tr><td colspan="5">読み込み中...</td></tr>
             </tbody>
           </table>
         </div>
@@ -269,7 +267,7 @@
 
   <script>
     const CONFIG = {
-      build: '20260701-form2-fee-fix',
+      build: '20260702-no-afterparty',
       gasUrl: 'https://script.google.com/macros/s/AKfycbzzVAS5B2iTJ0r9vSt6UYEHIvcLUukGqpH2h7D-f_02_7pCZr56M72UkZPpFJXsE4QoPA/exec',
       token: 'shimasho2026'
     };
@@ -307,7 +305,7 @@
       tbody.innerHTML = '';
 
       if (!items.length) {
-        tbody.innerHTML = '<tr><td colspan="6">未照合の回答はありません。</td></tr>';
+        tbody.innerHTML = '<tr><td colspan="5">未照合の回答はありません。</td></tr>';
         return;
       }
 
@@ -318,7 +316,6 @@
           <td>${escapeHtml(item.number || '')}</td>
           <td class="name">${escapeHtml(item.name || '')}</td>
           <td><span class="chip">${escapeHtml(item.status || '未回答')}</span></td>
-          <td>${escapeHtml(item.afterParty || '未回答')}</td>
           <td>${escapeHtml(formatDateTime(item.timestamp || ''))}</td>
         `;
         tbody.appendChild(tr);
@@ -327,7 +324,7 @@
 
     function renderError(message) {
       document.getElementById('unmatchedBody').innerHTML =
-        '<tr><td colspan="6">エラー：' + escapeHtml(message) + '</td></tr>';
+        '<tr><td colspan="5">エラー：' + escapeHtml(message) + '</td></tr>';
     }
 
     function formatDateTime(value) {
