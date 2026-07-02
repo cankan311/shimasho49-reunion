@@ -346,7 +346,10 @@
         font-size: 13px !important;
       }
     }
-    /* no loading overlay: show latest fixed HTML immediately */
+
+  
+    /* flash and awkward line-break fix */
+    /* loading overlay removed: show latest fixed text immediately */
 .btn,
     button,
     select,
@@ -445,6 +448,205 @@
       }
     }
 
+  
+    /* ===== 本文レイアウト最終版：見切れ防止＋意味のある改行 ===== */
+    html,
+    body {
+      max-width: 100%;
+      overflow-x: hidden !important;
+    }
+
+    .layout,
+    .content,
+    .section,
+    .hero,
+    .notice,
+    .photo-box,
+    .access-card,
+    .info-item,
+    .summary-card,
+    .mobile-menu-panel {
+      max-width: 100%;
+      min-width: 0;
+    }
+
+    /* 本文は折り返す。ここが前回の見切れ原因だったので強制解除 */
+    .lead,
+    .notice,
+    .sub,
+    .hero-lead,
+    .info-item strong,
+    .hero-info-card strong,
+    .access-card,
+    .access-list,
+    .photo-box,
+    .photo-box p,
+    #message .lead,
+    #message .notice,
+    #unmatched-guide .notice,
+    #photo-album .lead,
+    #photo-album .notice,
+    #notice .lead,
+    .footer {
+      white-space: normal !important;
+      word-break: normal !important;
+      overflow-wrap: break-word !important;
+      line-break: strict !important;
+    }
+
+    /* ボタン・短いラベルだけは途中で割らない */
+    .btn,
+    .button,
+    button,
+    select,
+    .chip,
+    .eyebrow,
+    th,
+    .roster-toggle-btn,
+    .roster-attend-btn,
+    .status-filter button,
+    .quick-class button {
+      white-space: nowrap !important;
+      word-break: keep-all !important;
+      overflow-wrap: normal !important;
+      line-break: strict !important;
+    }
+
+    .lead {
+      font-size: 16px !important;
+      line-height: 2.08 !important;
+      letter-spacing: .01em !important;
+    }
+
+    .notice {
+      font-size: 15px !important;
+      line-height: 2.0 !important;
+      padding: 18px 20px !important;
+    }
+
+    .notice p,
+    .lead p {
+      margin: 0;
+    }
+
+    .notice p + p,
+    .lead p + p {
+      margin-top: .7em;
+    }
+
+    .sub {
+      line-height: 1.85 !important;
+    }
+
+    .info-item strong,
+    .hero-info-card strong {
+      line-height: 1.7 !important;
+    }
+
+    .cta-row {
+      margin-top: 18px;
+    }
+
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 52px;
+      padding: 0 22px;
+      border-radius: 999px;
+      text-decoration: none;
+      font-weight: 900;
+      letter-spacing: .02em;
+      transition: transform .16s ease, opacity .16s ease, box-shadow .16s ease;
+    }
+
+    .button:hover {
+      transform: translateY(-2px);
+      opacity: .95;
+    }
+
+    .button-outline {
+      border: 1px solid rgba(139, 103, 42, 0.32) !important;
+      background: rgba(255, 255, 255, 0.72) !important;
+      color: #2c2112 !important;
+      box-shadow: 0 10px 22px rgba(92, 65, 34, .08);
+    }
+
+    .photo-box {
+      align-items: start !important;
+    }
+
+    .photo-box > div {
+      min-width: 0;
+    }
+
+    .photo-box .btn {
+      align-self: center;
+    }
+
+    @media (max-width: 680px) {
+      .layout {
+        width: calc(100% - 18px) !important;
+      }
+
+      .hero {
+        padding: 24px 18px !important;
+      }
+
+      .section {
+        padding: 22px 18px !important;
+      }
+
+      .lead {
+        font-size: 15px !important;
+        line-height: 2.0 !important;
+      }
+
+      .notice,
+      .sub {
+        font-size: 14px !important;
+        line-height: 1.92 !important;
+      }
+
+      .notice {
+        padding: 16px 18px !important;
+      }
+
+      .info-item strong,
+      .hero-info-card strong {
+        font-size: 15px !important;
+        line-height: 1.75 !important;
+      }
+
+      h2 {
+        font-size: clamp(27px, 7.3vw, 38px) !important;
+        line-height: 1.32 !important;
+        letter-spacing: .02em !important;
+      }
+
+      .button,
+      .btn {
+        width: 100%;
+        font-size: 14px !important;
+      }
+    }
+
+    @media (max-width: 380px) {
+      .section {
+        padding-left: 16px !important;
+        padding-right: 16px !important;
+      }
+
+      .lead {
+        font-size: 14px !important;
+      }
+
+      .notice,
+      .sub {
+        font-size: 13.5px !important;
+      }
+    }
+
   </style>
 
   <link rel="manifest" href="/manifest.json">
@@ -504,8 +706,9 @@
   </main>
 
   <script>
+    function revealPage() {}
 const CONFIG = {
-      build: '20260702-static-latest-no-loading',
+      build: '20260702-balanced-text-layout-fixed',
       gasUrl: 'https://script.google.com/macros/s/AKfycbzzVAS5B2iTJ0r9vSt6UYEHIvcLUukGqpH2h7D-f_02_7pCZr56M72UkZPpFJXsE4QoPA/exec',
       token: 'shimasho2026'
     };
